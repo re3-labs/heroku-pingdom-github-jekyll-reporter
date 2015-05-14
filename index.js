@@ -24,7 +24,7 @@ app.post('/report-pingdom', function(req, res) {
   if(req.body.check && req.body.action == "assign") {
     var id = req.body.incidentid;
     var desc = req.body.description;
-    var date = (new Date()).toISOString().slice(0, 11);
+    var date = (new Date()).toISOString().slice(0, 10);
 
     var content = new Buffer(
     "---\n" +
