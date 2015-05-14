@@ -1,0 +1,28 @@
+{
+  "name": "heroku-pingdom-jekyll-poster",
+  "version": "0.0.1",
+  "description": "Posts Pingdom incidents to a Jekyll site.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.12.4",
+    "express": "~4.9.x",
+    "request": "^2.55.0"
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
+  },
+  "keywords": [
+    "pingdom",
+    "github",
+    "jekyll",
+    "markdown"
+  ],
+  "license": "MIT"
+}

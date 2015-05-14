@@ -1,0 +1,6 @@
+{
+  "name": "Pingdom GitHub Jekyll reporter",
+  "description": "Reports Pingdom incidents to a Jekyll post",
+  "repository": "https://github.com/re3-labs/heroku-pingdom-github-jekyll-reporter",
+  "keywords": ["pingdom", "github", "jekyll", "markdown"]
+}
