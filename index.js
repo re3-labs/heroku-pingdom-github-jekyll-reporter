@@ -2,12 +2,10 @@
 
 var express = require('express');
 var request = require('request');
-var bodyParser = require('body-parser');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
-app.use(bodyParser.json());
 
 var repo = process.env.REPO;
 var token = process.env.ACCESS_TOKEN;
@@ -20,10 +18,15 @@ app.get('/', function(request, response) {
 
 app.post('/report-pingdom', function(req, res) {
   console.log("Incoming pingdom");
-  console.log(req.body);
-  if(req.body.check && req.body.action == "assign") {
-    var id = req.body.incidentid;
-    var desc = req.body.description;
+
+  if(req.query.message) {
+    var message = JSON.parse(req.query.message);
+    if(message.action != "assign") {
+      res.end("all ok now");
+      return;
+    }
+    var id = message.incidentid;
+    var desc = message.description;
     var date = (new Date()).toISOString().slice(0, 10);
 
     var content = new Buffer(
@@ -31,8 +34,7 @@ app.post('/report-pingdom', function(req, res) {
     "title: 'Automated report - incident #"+id+"'\n" +
     "---\n" +
     "\n\n" +
-    "Pingdom reports issues reaching service\n" +
-    desc + "\n"
+    "Pingdom reports issues reaching services.\n"
     ).toString("base64");
 
     var payload = {
