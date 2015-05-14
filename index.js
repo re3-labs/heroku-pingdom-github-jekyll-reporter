@@ -16,7 +16,7 @@ app.get('/', function(request, response) {
   response.send('nope');
 });
 
-app.post('/report-pingdom', function(req, res) {
+app.get('/report-pingdom', function(req, res) {
   console.log("Incoming pingdom");
 
   if(req.query.message) {
