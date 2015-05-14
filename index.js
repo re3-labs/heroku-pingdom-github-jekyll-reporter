@@ -64,4 +64,3 @@ app.post('/report-pingdom', function(req, res) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-// 00ecaf1d031e8d1458f08fda2af571a782b4ba67
